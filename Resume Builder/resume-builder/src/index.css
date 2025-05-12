@@ -26,6 +26,7 @@ form {
   border-radius: 8px;
   box-shadow: 0 4px 8px hsla(0, 0%, 18%, 0.977);
   margin-left: 30px;
+ 
   margin-top: 20px;
   margin-bottom: 20px;
   height: fit-content;
@@ -103,4 +104,24 @@ form:hover{
 button:hover{
  transform:  scale(1);
  background-color: hsl(240, 21%, 35%);
+}
+@media screen and (max-width:768px) {
+  
+  .Containor{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+  form{
+    float: none;
+    min-width: 90%;
+    margin: 0;
+  }
+  .Resume-Prev{
+    float: none;
+    min-width: 90%;
+    margin: 0;
+    margin-top: 50px;
+  }
 }

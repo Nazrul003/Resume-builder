@@ -2,16 +2,16 @@ import React from "react";
 import { useState } from "react";
 import jsPDF from "jspdf";
 export const Resume = () => {
-  // State for form data including dynamic sections
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phoneNo: '',
     experience: '',
-    sections: [] // Array for dynamic sections
+    sections: [] 
   });
 
-  // Handle change in input fields
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -26,7 +26,7 @@ export const Resume = () => {
     setFormData({ ...formData, sections: newSections }); // we are copying newSection[] to section[]
   };
 
-  // Add a new section
+
   const addSection = (heading) => {
     if(formData.sections.length>0&&(formData.sections[formData.sections.length-1].heading===''
       ||formData.sections[formData.sections.length-1].content==='')
@@ -42,8 +42,6 @@ export const Resume = () => {
                                                                 // { heading, content: '' }
 
 
-  // Remove a section
-  // filtering out respective index of section array
   const removeSection = (index) => {
     const newSections = formData.sections.filter((_, i) => i !== index); 
     setFormData({ ...formData, sections: newSections });
@@ -78,13 +76,7 @@ export const Resume = () => {
     pdf.line(15, y + 1.5, pdf.internal.pageSize.width - 15, y + 1.5);
     y += 10;
 
-    // // Add Address
-    // pdf.setFont("helvetica", "bold");
-    // pdf.text(`Address: ${formData.address}`, 15, y);
-    // pdf.setLineWidth(lineWidth);
-    // pdf.line(15, y + 1.5, pdf.internal.pageSize.width - 15, y + 1.5);
-    // y += 10;
-
+  
     // Add Experience
     pdf.setFontSize(18);
     pdf.setFont("helvetica", "bold");
